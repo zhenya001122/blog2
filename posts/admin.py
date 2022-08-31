@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from posts.models import Posts, Tag
+from posts.models import Post, Tag, Address
 
 
-@admin.register(Posts)
+@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ("author", "title", "slug", "created_at")
     fields = ("author", "title", "slug", "text", "created_at")
@@ -13,8 +13,14 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    # list_display = ("title")
-    # fields = ("title")
-    # readonly_fields = ("title")
-    search_fields = (["title"])
-    # raw_id_fields = ("title")
+    list_display = ("title",)
+    fields = ("title", 'posts')
+    readonly_fields = ("title",)
+    search_fields = ["title"]
+    # raw_id_fields = ("title",)
+
+@admin.register(Address)
+class AddressAdmin(admin.ModelAdmin):
+    list_display = ("author", "city", "street", "house_number", "phone", "email")
+    fields = ("author", "city", "street", "house_number", "phone", "email")
+    search_fields = ("author",)
