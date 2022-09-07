@@ -1,9 +1,9 @@
 from django.db import models
 from django.conf import settings
 
-class Addres(models.Model):
+class AddressDelivery(models.Model):
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="address"
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="addressdelivery"
     )
     city = models.CharField(max_length=20)
     street = models.CharField(max_length=20)

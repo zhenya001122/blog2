@@ -20,7 +20,7 @@ class Product(models.Model):
     link = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
-        return f"Product: {self.title}"
+        return f"Product: {self.title} {self.cost}"
 
 
 class Purchase(models.Model):

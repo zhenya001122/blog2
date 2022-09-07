@@ -15,7 +15,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
     def __str__(self):
-        return f"Post: {self.title}\n"
+        return f"Post: {self.title}, {self.text}"
 
 class Tag(models.Model):
     title = models.CharField(max_length=100)
